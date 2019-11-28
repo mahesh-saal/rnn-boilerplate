@@ -13,28 +13,23 @@ interface ExampleProps {
 const Example: RootType<ExampleProps> = ({ componentId }) => {
   const onPress = useCallback(() => {
     NavigationHelpers.pushTo(componentId, {
-      name: publicRoute.example2
+      name: publicRoute.example2,
     })
   }, [componentId])
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to Example 1!</Text>
-      <Button
-        title="Navigate to Next"
-        onPress={onPress}
-      />
-    </View>
-  </ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome to Example 1!</Text>
+        <Button title="Navigate to Next" onPress={onPress} />
+      </View>
+    </ScrollView>
   )
 }
 
 Example.options = {
   topBar: {
-    noBorder: false,
     title: { text: 'Example 1' },
-    largeTitle: { visible: true },
   },
 }
 
