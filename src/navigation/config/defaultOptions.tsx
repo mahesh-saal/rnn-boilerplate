@@ -9,6 +9,9 @@ const shared: Options = {
     title: {
       color: 'black',
     },
+    largeTitle: {
+      color: 'black',
+    },
   },
 
   animations: {

@@ -29,7 +29,8 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
 
 Example.options = {
   topBar: {
-    title: { text: 'Example 1' },
+    title: { text: 'Example 1', color: 'red' },
+    largeTitle: { visible: true, color: 'black' },
   },
 }
 

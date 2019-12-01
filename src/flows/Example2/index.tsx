@@ -14,7 +14,7 @@ interface Example2Props {
 const Example2: RootType<Example2Props> = ({ componentId }) => {
   const onNext = useCallback(() => {
     return NavigationHelpers.pushTo(componentId, {
-      name: publicRoute.example
+      name: publicRoute.example,
     })
   }, [componentId])
 
@@ -24,26 +24,21 @@ const Example2: RootType<Example2Props> = ({ componentId }) => {
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome to Example 2!</Text>
-          <Button
-            title="Navigate to Next"
-            onPress={onNext}
-          />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome to Example 2!</Text>
+        <Button title="Navigate to Next" onPress={onNext} />
 
-          <Button
-            title="Pop to root"
-            onPress={onPopToRoot}
-          />
-        </View>
-      </ScrollView>
+        <Button title="Pop to root" onPress={onPopToRoot} />
+      </View>
+    </ScrollView>
   )
 }
 
 Example2.options = () => ({
   topBar: {
     noBorder: true,
-    title: { text: 'Example 2' },
+    title: { text: 'Example 2', color: 'red' },
+    background: { color: 'black' },
     largeTitle: { visible: true },
   },
 })
