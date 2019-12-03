@@ -5,6 +5,7 @@ import { NavigationHelpers } from 'navigation/functions'
 import { RootType } from 'navigation/types'
 
 import styles from './styles'
+import { OptionsModalPresentationStyle } from 'react-native-navigation'
 
 interface ExampleProps {
   componentId: string
@@ -17,6 +18,15 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
     })
   }, [componentId])
 
+  const openExampleModal = useCallback(() => {
+    NavigationHelpers.showStackModal({
+      name: publicRoute.exampleModal,
+      options: {
+        modalPresentationStyle: OptionsModalPresentationStyle.fullScreen
+      }
+    })
+  }, [])
+
   return (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
     <View style={styles.container}>
@@ -25,6 +35,11 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
         title="Navigate to Next"
         onPress={onPress}
       />
+
+      <Button
+        title="Open Example modal"
+        onPress={openExampleModal}
+      />
     </View>
   </ScrollView>
   )
@@ -32,9 +47,12 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
 
 Example.options = {
   topBar: {
-    noBorder: false,
-    title: { text: 'Example 1' },
-    largeTitle: { visible: true },
+    noBorder: true,
+    title: { text: 'Example 1', color: 'black' },
+    largeTitle: { visible: true, color: 'black' },
+    background: {
+      color: 'white'
+    }
   },
 }
 
