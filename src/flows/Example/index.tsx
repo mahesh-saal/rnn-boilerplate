@@ -5,6 +5,7 @@ import { NavigationHelpers } from 'navigation/functions'
 import { RootType } from 'navigation/types'
 
 import styles from './styles'
+import { Navigation } from 'react-native-navigation'
 
 interface ExampleProps {
   componentId: string
@@ -18,8 +19,18 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
   }, [componentId])
 
   const openExampleModal = useCallback(() => {
-    NavigationHelpers.showStackModal({
-      name: publicRoute.exampleModal,
+    Navigation.showModal({
+      stack: {
+        id: 'MODAL_STACK_ID',
+        children: [
+          {
+            component: {
+              id: 'MODAL_COMPONENT_ID',
+              name: publicRoute.exampleModal,
+            },
+          },
+        ],
+      },
     })
   }, [])
 
