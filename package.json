@@ -17,32 +17,32 @@
     "mobx-react": "6.1.4",
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "react-native-navigation": "4.0.3"
+    "react-native-navigation": "4.0.5"
   },
   "devDependencies": {
-    "@babel/core": "7.7.4",
+    "@babel/core": "7.7.5",
     "@babel/plugin-proposal-decorators": "7.7.4",
-    "@babel/runtime": "7.7.4",
+    "@babel/runtime": "7.7.6",
     "@react-native-community/eslint-config": "0.0.5",
     "@types/jest": "24.0.23",
     "@types/react": "16.9.5",
-    "@types/react-native": "0.60.23",
+    "@types/react-native": "0.60.25",
     "@types/react-test-renderer": "16.9.0",
-    "babel-plugin-module-resolver": "3.2.0",
+    "babel-plugin-module-resolver": "4.0.0",
     "babel-plugin-transform-remove-console": "6.9.4",
-    "eslint": "6.7.1",
+    "eslint": "6.7.2",
     "eslint-config-airbnb-typescript": "6.3.1",
     "eslint-config-prettier": "6.7.0",
-    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-import": "2.19.1",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.1",
-    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react": "7.17.0",
     "jest": "24.9.0",
-    "jetifier": "1.6.4",
+    "jetifier": "1.6.5",
     "metro-react-native-babel-preset": "0.57.0",
     "react-test-renderer": "16.9.0",
     "prettier": "1.19.1",
-    "ts-jest": "24.0.2",
-    "typescript": "3.7.2"
+    "ts-jest": "24.2.0",
+    "typescript": "3.7.3"
   }
 }

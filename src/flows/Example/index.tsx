@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Text, View, Button, ScrollView } from 'react-native'
 import { publicRoute } from 'navigation/public/routes'
 import { NavigationHelpers } from 'navigation/functions'
 import { RootType } from 'navigation/types'
 
 import styles from './styles'
+import { Navigation } from 'react-native-navigation'
 
 interface ExampleProps {
   componentId: string
