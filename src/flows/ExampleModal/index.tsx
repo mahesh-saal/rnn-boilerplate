@@ -11,9 +11,7 @@ const ExampleModal: RootType<ExampleModalProps> = ({ componentId }) => {
   useEffect(() => {
     const modalDismissEvent = Navigation.events().registerModalDismissedListener(
       ({ componentId: modalId }) => {
-        console.log(modalId)
-        if (modalId !== componentId) return
-        Alert.alert('Modal Dismissed!')
+        Alert.alert(`Modal Dismissed: ${modalId}`)
       }
     )
 

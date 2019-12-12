@@ -5,7 +5,6 @@ import { NavigationHelpers } from 'navigation/functions'
 import { RootType } from 'navigation/types'
 
 import styles from './styles'
-import { Navigation } from 'react-native-navigation'
 
 interface ExampleProps {
   componentId: string
