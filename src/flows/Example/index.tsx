@@ -12,7 +12,7 @@ interface ExampleProps {
 
 const Example: RootType<ExampleProps> = ({ componentId }) => {
   const onPress = useCallback(() => {
-    NavigationHelpers.pushTo(componentId, {
+    NavigationHelpers.showStackModal({
       name: publicRoute.example2,
     })
   }, [componentId])
@@ -21,7 +21,7 @@ const Example: RootType<ExampleProps> = ({ componentId }) => {
     <ScrollView contentContainerStyle={{ flex: 1 }}>
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Example 1!</Text>
-        <Button title="Navigate to Next" onPress={onPress} />
+        <Button title="Open modal" onPress={onPress} />
       </View>
     </ScrollView>
   )
@@ -31,7 +31,7 @@ Example.options = {
   topBar: {
     noBorder: false,
     title: { text: 'Example 1' },
-    largeTitle: { visible: true, color: 'coral' },
+    largeTitle: { visible: false },
   },
 }
 

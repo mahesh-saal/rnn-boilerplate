@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react'
-import { Text, View, Button, ScrollView } from 'react-native'
+import React, { useCallback, useEffect } from 'react'
+import { Text, View, Button, ScrollView, Alert, EmitterSubscription } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { publicRoute } from 'navigation/public/routes'
 import { RootType } from 'navigation/types'
@@ -12,23 +12,28 @@ interface Example2Props {
 }
 
 const Example2: RootType<Example2Props> = ({ componentId }) => {
-  const onNext = useCallback(() => {
-    return NavigationHelpers.pushTo(componentId, {
-      name: publicRoute.example,
-    })
+  const onCloseModal = useCallback(() => {
+    Navigation.dismissModal(componentId)
   }, [componentId])
 
-  const onPopToRoot = useCallback(() => {
-    return Navigation.popToRoot(componentId)
-  }, [componentId])
+  useEffect(() => {
+    const modalDismissEvent = Navigation.events().registerModalDismissedListener(
+      ({ componentId: modalId }) => {
+        if (modalId !== componentId) return
+        Alert.alert('Modal dismissed!', 'The modal is dismissed.')
+      }
+    )
+
+    return () => {
+      modalDismissEvent.remove()
+    }
+  }, [])
 
   return (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Example 2!</Text>
-        <Button title="Navigate to Next" onPress={onNext} />
-
-        <Button title="Pop to root" onPress={onPopToRoot} />
+        <Text style={styles.welcome}>Modal Screen!</Text>
+        <Button title="Close modal" onPress={onCloseModal} />
       </View>
     </ScrollView>
   )
@@ -38,7 +43,7 @@ Example2.options = () => ({
   topBar: {
     noBorder: true,
     title: { text: 'Example 2' },
-    largeTitle: { visible: true },
+    largeTitle: { visible: false },
   },
 })
 
